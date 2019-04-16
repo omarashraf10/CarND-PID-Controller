@@ -1,6 +1,28 @@
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
 
+### Reflection.
+
+PID controlle has  Proportional, Integral and derivative components. 
+
+The P controller will give output proportional to the Cross Track Error (CTE) based on the proportional gain (Kp) configured. 
+If we increase the proportional gain of the controller, the stability of the system decreases and produces overshoot.
+
+The derivative component of PID gives output based on the difference between the current CTE and previous CTE.
+
+The integral term of the controller accumulated the previous errors of the system and tries to produce control variable based on that.
+
+I tuned the PID values manually experimenting with trial and error method. I started with changing the P gain of the controller. Once the system started to critically oscillate (without damping), I started to increase the D gain by steps of 0.05. The D gain helped to damp the oscillations and bring the CV to set point. I didn't change the I gain until the car was going off track in second sharp bend. The I gain helped to regain control over the car.
+
+Finally after experimenting with various values, I settled with the following parameters gains:-
+Kp=0.05
+Kd=5.0
+Ki=0.008
+
+
+
+
+
 ---
 
 ## Dependencies
